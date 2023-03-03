@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+#wrap {
+	width:1200px;
+	margin:auto;
+}
+
+header {
+	height:70px;
+}
+
+.contents {
+	height:600px;
+}
+
+.contents > .join-box {
+	height:600px;
+	width:400px;
+	
+}
+
+footer {
+	height:50px;
+}
