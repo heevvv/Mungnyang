@@ -14,6 +14,6 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mungyang
+    url: jdbc:mysql://localhost:3306/mungnyang
     username: root
     password: root
