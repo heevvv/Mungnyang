@@ -36,7 +36,7 @@
 				<h6>반려동물 이름</h6>
 				<input type="text" placeholder="*반려동물 이름을 입력하세요." id="petnameInput" class="form-control">
 				<h6>반려동물 사진(선택)</h6>
-				<input type="file" id="fileInput">
+				<input type="file" id="petImageInput">
 				<button type="button" id="joinBtn" class="btn btn-primary btn-block mt-2">회원가입</button>
 				<div class="input-box border rounded">
 				</div>
@@ -47,6 +47,83 @@
 			<div class="text-center">멍냥 플레이스</div>
 		</footer>
 	</div>
+	
+	
+	
+	
+	
+	
+	<script>
+		$(document).ready(function() {
+			$("#joinBtn").on("click", function() {
+				let id = $("#idInput").val();
+				let password = $("#passwordInput").val();
+				let passwordConfirm = $("#passwordConfirmInput").val();
+				let name = $("#nameInput").val();
+				let email = $("#emailInput").val();
+				let petname = $("#petnameInput").val();
+				let petImage = $("#petImageInput").val();
+			
+				if(id == "") {
+					alert("아이디를 입력하세요.");
+					return ;
+				}
+				
+				if(password == "") {
+					alert("비밀번호를 입력하세요.");
+					return ;
+				}
+				
+				if(password != passwordConfirm) {
+					alert("비밀번호가 일치하지 않습니다.");
+					return ;
+				}
+				
+				if(name == "") {
+					alert("이름을 입력하세요.");
+					return ;
+				}
+				
+				if(email == "") {
+					alert("이메일을 입력하세요.")
+					return ;
+				}
+				
+				if(petname == "") {
+					alert("반려동물 이름을 입력하세요.")
+					return ;
+				}				
+				
+				$.ajax({
+					type:"post"
+					, url:"/user/signup"
+					, data:{"loginid":id, "password":password, "name":name, "email":email, "petname":petname, "petImage":petImage}
+					, success:function(data) {
+						
+						if(data.result == "success") {
+							alert("회원가입 성공");
+							
+						} else {
+							alert("회원가입 실패");
+						}
+					}
+					
+					
+					, error:function() {
+						alert("회원가입 에러");
+					}
+					
+					
+					
+				});
+				
+			});
+			
+		});
+	
+	
+	
+	</script>
 
 </body>
 </html>
