@@ -18,23 +18,25 @@
 <body>
 		<!-- 큰 박스-->
 		<div id="wrap">
+		
 		<header class="bg-danger text-center">
 			<h1>𝑀𝑢𝑛𝑔𝑛𝑦𝑎𝑛𝑔𝑃𝑙𝑎𝑐𝑒</h1>
 		</header>
+		
 		<section class="contents bg-success d-flex justify-content-center">
 			<div class="join-box bg-warning pt-3">
 				<h2 class="text-center mt-5">𝐿𝑜𝑔𝑖𝑛</h2>
 				<h6>아이디</h6>
-				<input type="text" placeholder="*아이디를 입력하세요." id="loginIdInput" class="form-control">
+				<input type="text" placeholder="*아이디를 입력하세요." id="idInput" class="form-control">
 				<h6>비밀번호</h6>
 				<input type="password" placeholder="*비밀번호를 입력하세요." id="passwordInput" class="form-control">
 
 
-				<button id="loginBtn" type="submit" class="btn btn-primary btn-block mt-3">로그인</button>
-	
-					<div class="p-3 d-flex justify-content-center align-items-start  border rounded mt-5 p-3">
-						계정이 없으신가요? <a href="/user/signup/view">가입하기</a>
-					</div>			
+				<button type="button" id="loginBtn" class="btn btn-primary btn-block mt-3">로그인</button>
+				
+				<div class="p-3 d-flex justify-content-center align-items-start  border rounded mt-5 p-3">
+					계정이 없으신가요? <a href="/user/signup/view">가입하기</a>
+				</div>			
 			
 			</div>
 		</section>
@@ -42,7 +44,49 @@
 		<footer class="bg-info">
 			<div class="text-center">Copyright 2021. All rights reserved.</div>
 		</footer>
+		
 	</div>
+	<!--  큰 박스 -->
 
+
+	<script>
+		$(document).ready(function() {
+		
+			$("#loginBtn").on("click", function() {
+				let id = $("#idInput").val();
+				let password = $("#passwordInput").val();
+		
+				if(id == "") {
+					alert("아이디를 입력하세요.");
+					return ;
+				}
+	
+				if(password == "") {
+					alert("비밀번호를 입력하세요.");
+					return ;
+				}
+			
+				$.ajax({
+					type:"post"
+					, url: "/user/signin"
+					, data: {"loginId":id, "password":password}
+					, success:function(data) {
+						if(data.result == "success") {
+							location.href = "/post/list/view";
+						} else {
+							alert("아이디 또는 비밀번호를 확인해주세요.")
+						}
+					
+					}
+					, error:function() {
+						alert("로그인 에러");
+					}
+				
+				});
+	
+			});
+		});
+	
+	</script>
 </body>
 </html>
