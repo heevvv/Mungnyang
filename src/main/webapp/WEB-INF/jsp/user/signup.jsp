@@ -18,11 +18,11 @@
 <body>
 	<div id="wrap">
 		<header class="bg-danger text-center">
-			<h1>멍냥 플레이스</h1>
+			<h1>𝑀𝑢𝑛𝑔𝑛𝑦𝑎𝑛𝑔𝑃𝑙𝑎𝑐𝑒</h1>
 		</header>
 		<section class="contents bg-success d-flex justify-content-center">
 			<div class="join-box bg-warning">
-				<h2 class="text-center">회원가입</h2>
+				<h2 class="text-center">𝑠𝑖𝑔𝑛 𝑢𝑝</h2>
 				<h6>아이디</h6>
 				<input type="text" placeholder="*아이디를 입력하세요." id="idInput" class="form-control">
 				<h6>비밀번호</h6>
@@ -36,13 +36,15 @@
 				<h6>반려동물 이름</h6>
 				<input type="text" placeholder="*반려동물 이름을 입력하세요." id="petnameInput" class="form-control">
 				<button type="button" id="joinBtn" class="btn btn-primary btn-block mt-2">회원가입</button>
-				<div class="input-box border rounded">
+				
+				<div class="mt-4 p-3 d-flex justify-content-center align-items-start  border rounded">
+					계정이 있으신가요? <a href="/user/signin/view">로그인</a>
 				</div>
 			</div>
 		</section>
 		
 		<footer class="bg-info">
-			<div class="text-center">멍냥 플레이스</div>
+			<div class="text-center">Copyright 2021. All rights reserved.</div>
 		</footer>
 	</div>
 	
@@ -97,7 +99,7 @@
 					, data:{"loginId":id, "password":password, "name":name, "email":email, "petname":petname}
 					, success:function(data) {
 						if(data.result == "success") {
-							alert("회원가입 성공")
+							location.href = "/user/signin/view";
 						} else {
 							alert("회원가입 실패");
 						}
