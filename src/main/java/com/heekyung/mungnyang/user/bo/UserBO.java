@@ -29,7 +29,8 @@ public class UserBO {
 	
 	
 	public User getUser(String loginId, String password) {
-		return userDAO.selectUser(loginId, password);
+		String encryptPassword = EncryptUtils.md5(password);
+		return userDAO.selectUser(loginId, encryptPassword);
 			
 	}
 	

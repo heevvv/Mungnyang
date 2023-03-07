@@ -23,23 +23,29 @@
 			<h1>𝑀𝑢𝑛𝑔𝑛𝑦𝑎𝑛𝑔𝑃𝑙𝑎𝑐𝑒</h1>
 		</header>
 		
+		
 		<section class="contents bg-success d-flex justify-content-center">
-			<div class="login-box bg-warning pt-3">
-				<h2 class="text-center mt-5">𝐿𝑜𝑔𝑖𝑛</h2>
-				<h6>아이디</h6>
-				<input type="text" placeholder="*아이디를 입력하세요." id="idInput" class="form-control">
-				<h6>비밀번호</h6>
-				<input type="password" placeholder="*비밀번호를 입력하세요." id="passwordInput" class="form-control">
+			<div class="main-box bg-warning pt-2">
+				<h2 class="text-center mt-5">𝑀𝑎𝑖𝑛</h2>
 
-
-				<button type="button" id="loginBtn" class="btn btn-primary btn-block mt-3">로그인</button>
+			<div class="mt-3 p-4 text-center">
+				<img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_960_720.jpg" width="300">
+				<img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_960_720.jpg" width="300">
 				
-				<div class="p-3 d-flex justify-content-center align-items-start  border rounded mt-5 p-3">
-					계정이 없으신가요? <a href="/user/signup/view">가입하기</a>
-				</div>			
-			
+				</div>
+				
+				<div class="main-menu ml-3 d-flex justify-content-center">
+					<div class="mr-5 pr-5">
+						<a href="/user/signup/view"><h4>멍냥정보공유</h4></a>
+					</div>
+					<div class="ml-5 pl-5">
+						<a href="/user/signup/view"><h4>멍냥병원찾기</h4></a>
+					</div>
+				</div>
+
 			</div>
 		</section>
+		
 		
 		<footer class="bg-info">
 			<div class="text-center">Copyright 2021. All rights reserved.</div>
@@ -49,45 +55,5 @@
 	<!--  큰 박스 -->
 
 
-	<script>
-		$(document).ready(function() {
-		
-			$("#loginBtn").on("click", function() {
-				let id = $("#idInput").val();
-				let password = $("#passwordInput").val();
-		
-				if(id == "") {
-					alert("아이디를 입력하세요.");
-					return ;
-				}
-	
-				if(password == "") {
-					alert("비밀번호를 입력하세요.");
-					return ;
-				}
-			
-				$.ajax({
-					type:"post"
-					, url: "/user/signin"
-					, data: {"loginId":id, "password":password}
-					, success:function(data) {
-						if(data.result == "success") {
-							alert("성공적으로 로그인 되었습니다.");
-							location.href = "/main/menu/view";
-						} else {
-							alert("아이디 또는 비밀번호를 확인해주세요.")
-						}
-					
-					}
-					, error:function() {
-						alert("로그인 에러");
-					}
-				
-				});
-	
-			});
-		});
-	
-	</script>
 </body>
 </html>

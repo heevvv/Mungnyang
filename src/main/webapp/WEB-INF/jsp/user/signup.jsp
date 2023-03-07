@@ -99,6 +99,7 @@
 					, data:{"loginId":id, "password":password, "name":name, "email":email, "petname":petname}
 					, success:function(data) {
 						if(data.result == "success") {
+							alert("성공적으로 회원가입 되었습니다.");
 							location.href = "/user/signin/view";
 						} else {
 							alert("회원가입 실패");
