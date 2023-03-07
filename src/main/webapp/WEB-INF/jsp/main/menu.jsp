@@ -33,13 +33,13 @@
 				<img src="https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_960_720.jpg" width="300">
 				
 				</div>
-				
+				찾기
 				<div class="main-menu ml-3 d-flex justify-content-center">
 					<div class="mr-5 pr-5">
-						<a href="/user/signup/view"><h4>멍냥정보공유</h4></a>
+						<a href="/post/list/view"><h4>멍냥정보공유</h4></a>
 					</div>
 					<div class="ml-5 pl-5">
-						<a href="/user/signup/view"><h4>멍냥병원찾기</h4></a>
+						<a href="/search/list/view"><h4>멍냥병원찾기</h4></a>
 					</div>
 				</div>
 
