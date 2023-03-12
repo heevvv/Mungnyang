@@ -24,7 +24,126 @@
 		</header>
 		
 		<section class="d-flex justify-content-center">
+			<div class="timeline-box">
+				<div class="input-box border rounded">
+					<textarea class="form-control border-0" rows="5"></textarea>
+					
+					<div class="d-flex justify-content-between">
+						<input type="file" id="fileInput">
+						<div class="upload-icon text-info" id="imageUploadBtn"><i class="bi bi-card-image"></i> </div>
+						<button type="button" class="btn btn-info">업로드</button>
+					</div>
+				</div>
+				
+				<div class="card-list">
+				
+				
+					<div class="card mt-4">
+						<div class="d-flex justify-content-between p-2 mt-3">
+							<div><b>신희경</b></div>
+							<div><i class="bi bi-three-dots"></i></div>
+						</div>
+						<div>
+							<img width="100%" src="https://cdn.pixabay.com/photo/2016/01/05/17/51/maltese-1123016_960_720.jpg">
+						</div>
 
+						<div class="p-2">
+							저희 집 강아지 미용했어요!!
+							<br>
+							진짜 너무너무 귀여워요!!!
+							<br>
+							강아지 미용 잘하는곳 #멍냥미용실 추천드려요!!
+						</div>
+					
+						<!--  댓글들 -->
+						<div class="comment-box p-2">
+							<div>댓글</div>
+							<hr>
+							<div><b>장원영</b> 꺄 너무 귀여워요!!</div>
+							<div><b>안유진</b> 우와!!!</div>	
+							
+							<div class="d-flex">
+								<input type="text" class="form-control">
+								<button type="button" class="btn btn-primary">게시</button>
+							</div>
+							
+						</div>
+						<!--  /댓글들 -->
+						
+					</div>
+					<!-- /카드 -->
+				
+				
+					<div class="card mt-4">
+						<div class="d-flex justify-content-between p-2 mt-3">
+							<div><b>신희경</b></div>
+							<div><i class="bi bi-three-dots"></i></div>
+						</div>
+						<div>
+							<img width="100%" src="https://cdn.pixabay.com/photo/2016/01/05/17/51/maltese-1123016_960_720.jpg">
+						</div>
+
+						<div class="p-2">
+							저희 집 강아지 미용했어요!!
+							<br>
+							진짜 너무너무 귀여워요!!!
+							<br>
+							강아지 미용 잘하는곳 #멍냥미용실 추천드려요!!
+						</div>
+					
+						<!--  댓글들 -->
+						<div class="comment-box p-2">
+							<div>댓글</div>
+							<hr>
+							<div><b>장원영</b> 꺄 너무 귀여워요!!</div>
+							<div><b>안유진</b> 우와!!!</div>	
+							
+							<div class="d-flex">
+								<input type="text" class="form-control">
+								<button type="button" class="btn btn-primary">게시</button>
+							</div>
+							
+						</div>
+						<!--  댓글들 -->
+						
+					</div>
+					<!-- /카드 -->
+					
+					
+					
+					
+					
+					
+					
+				</div>
+				<!-- /카드들 -->
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</div>
+			<!-- /타임라인 -->
 		</section>
 
 		<footer class="bg-info">
