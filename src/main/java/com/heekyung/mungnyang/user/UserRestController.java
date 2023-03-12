@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -54,7 +55,8 @@ public class UserRestController {
 		HttpSession session = request.getSession();
 		// 세션에 값 저장
 		session.setAttribute("userId", user.getId());
-		session.setAttribute("userId", user.getName());
+		session.setAttribute("userName", user.getName());
+		session.setAttribute("userPetname", user.getPetname());
 
 		Map<String, String> result = new HashMap<>();
 		
@@ -66,4 +68,26 @@ public class UserRestController {
 		
 		return result;
 	}
+	
+	
+	
+	
+	// 아이디 중복 확인 기능
+	@GetMapping("/duplicate_id")
+	public Map<String, Boolean> duplicateId(@RequestParam("loginId") String loginId) {
+		
+		boolean isDuplicate = userBO.duplicateId(loginId);
+		
+		
+		Map<String, Boolean> result = new HashMap<>();
+
+		
+		result.put("is_duplicate", isDuplicate);
+		
+		return result;
+	}
+	
+	
+	
+	
 }

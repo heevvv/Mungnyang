@@ -24,7 +24,13 @@
 			<div class="join-box bg-warning">
 				<h2 class="text-center">𝑠𝑖𝑔𝑛 𝑢𝑝</h2>
 				<h6>아이디</h6>
-				<input type="text" placeholder="*아이디를 입력하세요." id="idInput" class="form-control">
+				<div class="d-flex mt-3">
+					<input type="text" placeholder="*아이디를 입력하세요." id="loginIdInput" class="form-control">
+					<button type="button" class="btn btn-info btn-sm ml-2" id="isDuplicateBtn">중복확인</button>
+				</div>
+					<div class="small text-success d-none" id="availableText">사용가능한 아이디 입니다.</div>
+					<div class="small text-danger d-none" id="duplicateText">중복된 아이디 입니다.</div>
+
 				<h6>비밀번호</h6>
 				<input type="password" placeholder="*비밀번호를 입력하세요." id="passwordInput" class="form-control">
 				<h6>비밀번호 확인</h6>
@@ -50,8 +56,47 @@
 	
 	<script>
 		$(document).ready(function() {
+			
+			var isDuplicateCheck = false;
+			var isDuplicateId = true;
+			
+			$("#isDuplicateBtn").on("click", function() {
+				let id = $("#loginIdInput").val();
+				
+				if(id == "") {
+					alert("아이디를 입력하세요");
+					return ;
+				}
+				
+				$.ajax({
+					type:"get"
+					, url:"/user/duplicate_id"
+					, data:{"loginId":id}
+					, success:function(data) {
+						isDuplicateCheck = true;
+						
+						if(data.is_duplicate) { // 중복된 상태
+							
+							isDuplicateId = true;
+							$("#duplicateText").removeClass("d-none");
+							$("#availableText").addClass("d-none");
+						} else { //중복 안된 상태
+							
+							isDuplicateId = false;
+							$("#availableText").removeClass("d-none");
+							$("#duplicateText").addClass("d-none");
+						}
+						
+					}
+					, error:function() {
+						alert("중복확인 에러");
+					}
+				});
+				
+			});
+			
 			$("#joinBtn").on("click", function() {
-				let id = $("#idInput").val();
+				let id = $("#loginIdInput").val();
 				let password = $("#passwordInput").val();
 				let passwordConfirm = $("#passwordConfirmInput").val();
 				let name = $("#nameInput").val();
@@ -60,6 +105,16 @@
 				
 				if(id == "") {
 					alert("아이디를 입력하세요.");
+					return ;
+				}
+				
+					if(!isDuplicateCheck) {
+						alert("아이디 중복 확인을 해주세요.");
+					return ;
+				}
+
+				if(isDuplicateId) {
+					alert("존재하는 아이디 입니다.");
 					return ;
 				}
 				

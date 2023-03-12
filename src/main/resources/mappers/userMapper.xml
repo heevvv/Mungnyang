@@ -54,4 +54,22 @@
 	
 	
 	</select>
+	
+	
+	<select id="idCheck" parameterType="string" resultType="int">
+	
+		SELECT
+			count(1)
+		FROM
+			`user`
+		WHERE
+			`loginId` = #{loginId}
+		
+		
+	</select>
+	
+	
+	
+	
+	
 </mapper>

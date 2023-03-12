@@ -21,6 +21,9 @@
 		
 		<header class="bg-danger text-center">
 			<h1>𝑀𝑢𝑛𝑔𝑛𝑦𝑎𝑛𝑔𝑃𝑙𝑎𝑐𝑒</h1>
+			<c:if test="${not empty userId }">
+				<div class="d-flex justify-content-end">${userName }님 <a href="/user/signout">로그아웃</a></div>
+			</c:if>
 		</header>
 		
 		<section class="d-flex justify-content-center">

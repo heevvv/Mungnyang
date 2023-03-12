@@ -35,4 +35,15 @@ public class UserBO {
 	}
 	
 	
-}
+	// 아이디 중복 확인 기능
+	// 중복이 됐으면 true, 중복이 안됐으면 false 리턴
+	public boolean duplicateId(String loginId) {
+		
+		int count = userDAO.idCheck(loginId);
+		return count != 0;
+
+		}
+	
+		
+		
+	}

@@ -15,9 +15,11 @@ public interface UserDAO {
 			, @Param("email") String email
 			, @Param("petname") String petname);
 	
+	// id password 일치하는 것 가져오기
 	public User selectUser(
 			@Param("loginId") String loginId
 			, @Param("password") String password);
 	
-	
+	public int idCheck(String loginId);
+
 }
