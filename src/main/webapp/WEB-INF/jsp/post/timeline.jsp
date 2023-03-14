@@ -29,7 +29,7 @@
 		<section class="d-flex justify-content-center">
 			<div class="timeline-box">
 				<div class="input-box border rounded">
-					<textarea class="form-control border-0" rows="5"></textarea>
+					<textarea class="form-control border-0" rows="5" id="contentInput"></textarea>
 					
 					<div class="d-flex justify-content-between">
 						<input type="file" id="fileInput" class="d-none" id="fileInput">
@@ -38,24 +38,22 @@
 					</div>
 				</div>
 				
+				<!--  카드들 -->
 				<div class="card-list">
-				
-				
+					<c:forEach var="post" items="${postList }">
+
 					<div class="card mt-4">
 						<div class="d-flex justify-content-between p-2 mt-3">
 							<div>${userId }</div>
 							<div><i class="bi bi-three-dots"></i></div>
 						</div>
+						
 						<div>
-							<img width="100%" src="https://cdn.pixabay.com/photo/2016/01/05/17/51/maltese-1123016_960_720.jpg">
+							<img width="100%" src="${post.imagePath }">
 						</div>
 
 						<div class="p-2">
-							저희 집 강아지 미용했어요!!
-							<br>
-							진짜 너무너무 귀여워요!!!
-							<br>
-							강아지 미용 잘하는곳 #멍냥미용실 추천드려요!!
+							${post.content }
 						</div>
 					
 						<!--  댓글들 -->
@@ -76,7 +74,7 @@
 					</div>
 					<!-- /카드 -->
 				
-
+				</c:forEach>
 				</div>
 				<!-- /카드들 -->
 				
@@ -94,6 +92,48 @@
 	
 	<script>
 	$(document).ready(function() {
+		
+		$("#uploadBtn").on("click", function() {
+			
+			let content = $("#contentInput").val();
+			if(content == "") {
+				
+				alert("내용을 입력하세요");
+				return;
+			}
+			
+			if($("#fileInput")[0].files.length == 0) {
+				alert("파일을 선택해주세요.");
+				return;
+			}
+		
+			var formData = new FormData();
+			formData.append("content", content);
+			formData.append("file", $("#fileInput")[0].files[0]);
+			
+			$.ajax({
+				type:"post"
+				, url:"/post/create"
+				, data:formData
+				, enctype:"multipart/form-data"
+				, processData:false
+				, contentType:false
+				, success:function(data) {
+					if(data.result = "success") {
+						location.reload();
+					} else {
+						alert("업로드 실패");
+					}
+					
+				}
+				, error:function() {
+					alert("업로드 에러");
+				}
+			});
+			
+		});
+	
+	
 	
 		$("#imageUploadBtn").on("click", function() {
 			$("#fileInput").click();
