@@ -27,7 +27,7 @@
 			<div class="login-box bg-warning pt-3">
 				<h2 class="text-center mt-5">𝐿𝑜𝑔𝑖𝑛</h2>
 				<h6>아이디</h6>
-				<input type="text" placeholder="*아이디를 입력하세요." id="idInput" class="form-control">
+				<input type="text" placeholder="*아이디를 입력하세요." id="loginIdInput" class="form-control">
 				<h6>비밀번호</h6>
 				<input type="password" placeholder="*비밀번호를 입력하세요." id="passwordInput" class="form-control">
 
@@ -53,10 +53,10 @@
 		$(document).ready(function() {
 		
 			$("#loginBtn").on("click", function() {
-				let id = $("#idInput").val();
+				let loginId = $("#loginIdInput").val();
 				let password = $("#passwordInput").val();
 		
-				if(id == "") {
+				if(loginId == "") {
 					alert("아이디를 입력하세요.");
 					return ;
 				}
@@ -69,7 +69,7 @@
 				$.ajax({
 					type:"post"
 					, url: "/user/signin"
-					, data: {"loginId":id, "password":password}
+					, data: {"loginId":loginId, "password":password}
 					, success:function(data) {
 						if(data.result == "success") {
 							alert("성공적으로 로그인 되었습니다.");
