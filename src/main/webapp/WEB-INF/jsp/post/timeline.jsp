@@ -55,6 +55,8 @@
 						<div class="p-2">
 							${post.content }
 						</div>
+						
+						
 					
 						<!--  댓글들 -->
 						<div class="comment-box p-2">
@@ -63,10 +65,12 @@
 							<div><b>장원영</b> 꺄 너무 귀여워요!!</div>
 							<div><b>안유진</b> 우와!!!</div>	
 							
+							
 							<div class="d-flex">
-								<input type="text" class="form-control">
-								<button type="button" class="btn btn-primary">게시</button>
+								<input type="text" class="form-control" id="commentInput${post.id }">
+								<button type="button" class="btn btn-primary comment-btn" data-post-id="${post.id }">게시</button>
 							</div>
+
 							
 						</div>
 						<!--  /댓글들 -->
@@ -93,6 +97,33 @@
 	<script>
 	$(document).ready(function() {
 		
+		// 댓글 작성
+		$(".comment-btn").on("click", function() {
+			
+			let postId = $(this).data("post-id");
+			let comment = $("#commentInput" + postId).val();
+			
+			$.ajax({
+				type:"post"
+				, url:"/post/comment/create"
+				, data:{"postId":postId, "content":comment}
+				, success:function(data) {
+					if(data.result == "success") {
+						location.reload();
+					} else {
+						
+						alert("댓글 작성 실패");
+					}
+				}
+				, error:function() {
+					alert("댓글 작성 에러");
+				}
+			});
+			
+			
+		});
+		
+		// 글 업로드
 		$("#uploadBtn").on("click", function() {
 			
 			let content = $("#contentInput").val();
@@ -134,7 +165,7 @@
 		});
 	
 	
-	
+		// 이미지 아이콘 눌렀을 때 파일 선택
 		$("#imageUploadBtn").on("click", function() {
 			$("#fileInput").click();
 		});
