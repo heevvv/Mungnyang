@@ -21,5 +21,7 @@ public interface UserDAO {
 			, @Param("password") String password);
 	
 	public int idCheck(String loginId);
+	
+	public User selectUserById(@Param("id") int id);
 
 }

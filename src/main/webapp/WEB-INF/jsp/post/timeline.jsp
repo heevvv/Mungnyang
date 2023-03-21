@@ -44,7 +44,7 @@
 
 					<div class="card mt-4">
 						<div class="d-flex justify-content-between p-2 mt-3">
-							<div>${userId }</div>
+							<div>${post.userName }</div>
 							<div><i class="bi bi-three-dots"></i></div>
 						</div>
 						
@@ -62,9 +62,9 @@
 						<div class="comment-box p-2">
 							<div>댓글</div>
 							<hr>
-							<div><b>장원영</b> 꺄 너무 귀여워요!!</div>
-							<div><b>안유진</b> 우와!!!</div>	
-							
+							<c:forEach var="comment" items="${post.commentList }" >
+							<div><b>${comment.userId }</b> ${comment.content }</div>
+							</c:forEach>
 							
 							<div class="d-flex">
 								<input type="text" class="form-control" id="commentInput${post.id }">

@@ -69,6 +69,23 @@
 	</select>
 	
 	
+	<select id="selectUserById" parameterType="int"
+		resultType="com.heekyung.mungnyang.user.model.User">
+		SELECT 
+			`id`
+			,`loginId`
+			, `password`
+			, `name`
+			, `email`
+			, `petname`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`user`
+		WHERE
+			`id` = #{id}
+	
+	</select>
 	
 	
 	

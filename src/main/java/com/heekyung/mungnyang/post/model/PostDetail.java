@@ -1,5 +1,9 @@
 package com.heekyung.mungnyang.post.model;
 
+import java.util.List;
+
+import com.heekyung.mungnyang.post.comment.model.Comment;
+
 public class PostDetail {
 	
 	private int id;
@@ -7,7 +11,14 @@ public class PostDetail {
 	private String userName;
 	private String content;
 	private String imagePath;
+	private List<Comment> commentList;
 	
+	public List<Comment> getCommentList() {
+		return commentList;
+	}
+	public void setCommentList(List<Comment> commentList) {
+		this.commentList = commentList;
+	}
 	public int getId() {
 		return id;
 	}
