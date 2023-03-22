@@ -44,7 +44,33 @@
 	
 	
 	</select>
+	
+	
+	<select id="selectPost" parameterType="int"
+	 resultType="com.heekyung.mungnyang.post.model.Post">
+		SELECT
+			`id`
+			, `userId`
+			, `content`
+			, `imagePath`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`post`
+		WHERE
+			`id` = #{postId}
+		
+	
+	</select>
 
 
+	<delete id="deletePost" parameterType="int">
+		DELETE FROM
+			`post`
+		WHERE
+			`id` = #{postId}
+	</delete>
+	
+	
 </mapper>
 

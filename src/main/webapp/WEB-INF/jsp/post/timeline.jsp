@@ -46,7 +46,7 @@
 					<div class="card mt-4">
 						<div class="d-flex justify-content-between p-2 mt-3">
 							<div><b>${post.userName }</b></div>
-							<div><i class="bi bi-three-dots"></i></div>
+							<div class="more-btn" data-post-id="${post.id }"><i class="bi bi-three-dots"></i></div>
 						</div>
 						
 						<div>
@@ -97,6 +97,29 @@
 	
 	<script>
 	$(document).ready(function() {
+		
+		// 게시글 삭제
+		$(".more-btn").on("click", function() {
+			let postId = $(this).data("post-id");
+			
+			$.ajax({
+				type:"get"
+				, url:"/post/delete"
+				, data:{"postId":postId}
+				, success:function(data) {
+					if(data.result == "success") {
+						location.reload();
+					} else {
+						alert("삭제 실패");
+					}
+					
+				}
+				, error :function() {
+					alert("삭제 에러");
+				}
+			});
+		});
+		
 		
 		// 댓글 작성
 		$(".comment-btn").on("click", function() {

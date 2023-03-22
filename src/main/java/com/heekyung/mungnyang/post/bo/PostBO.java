@@ -67,6 +67,16 @@ public class PostBO {
 		
 
 	}
+	// 게시글 삭제 기능
+	public int deletePost(int postId) {
+		
+		Post post = postDAO.selectPost(postId);
+		FileManagerService.removeFile(post.getImagePath());
+		
+		commentBO.deleteCommentByPostId(postId);
+		
+		return postDAO.deletePost(postId);
+	}
 		
 	
 	}
