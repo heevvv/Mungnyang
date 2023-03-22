@@ -2,7 +2,7 @@ package com.heekyung.mungnyang.post.model;
 
 import java.util.List;
 
-import com.heekyung.mungnyang.post.comment.model.Comment;
+import com.heekyung.mungnyang.post.comment.model.CommentDetail;
 
 public class PostDetail {
 	
@@ -11,12 +11,13 @@ public class PostDetail {
 	private String userName;
 	private String content;
 	private String imagePath;
-	private List<Comment> commentList;
+	private List<CommentDetail> commentList;
 	
-	public List<Comment> getCommentList() {
+
+	public List<CommentDetail> getCommentList() {
 		return commentList;
 	}
-	public void setCommentList(List<Comment> commentList) {
+	public void setCommentList(List<CommentDetail> commentList) {
 		this.commentList = commentList;
 	}
 	public int getId() {

@@ -42,9 +42,10 @@
 				<div class="card-list">
 					<c:forEach var="post" items="${postList }">
 
+					<!--  카드 -->
 					<div class="card mt-4">
 						<div class="d-flex justify-content-between p-2 mt-3">
-							<div>${post.userName }</div>
+							<div><b>${post.userName }</b></div>
 							<div><i class="bi bi-three-dots"></i></div>
 						</div>
 						
@@ -63,7 +64,7 @@
 							<div>댓글</div>
 							<hr>
 							<c:forEach var="comment" items="${post.commentList }" >
-							<div><b>${comment.userId }</b> ${comment.content }</div>
+							<div><b>${comment.userName }</b> ${comment.content }</div>
 							</c:forEach>
 							
 							<div class="d-flex">
@@ -89,7 +90,7 @@
 		</section>
 
 		<footer class="bg-info">
-			<div class="text-center">Copyright 2021. All rights reserved.</div>
+			<div class="text-center">Copyright 2023. All rights reserved.</div>
 		</footer>
 		
 	</div>

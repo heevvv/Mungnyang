@@ -50,7 +50,7 @@
 		</section>
 		
 		<footer class="bg-info">
-			<div class="text-center">Copyright 2021. All rights reserved.</div>
+			<div class="text-center">Copyright 2023. All rights reserved.</div>
 		</footer>
 	</div>
 	
