@@ -19,7 +19,7 @@
 		<!-- 큰 박스-->
 		<div id="wrap">
 		
-		<header class="bg-danger text-center">
+		<header class="text-center">
 			<h1>𝑀𝑢𝑛𝑔𝑛𝑦𝑎𝑛𝑔𝑃𝑙𝑎𝑐𝑒</h1>
 			<c:if test="${not empty userId }">
 				<div class="d-flex justify-content-end">${userName }님 <a href="/user/signout">로그아웃</a></div>
@@ -27,8 +27,8 @@
 		</header>
 		
 		
-		<section class="contents bg-success d-flex justify-content-center">
-			<div class="main-box bg-warning pt-2">
+		<section class="contents d-flex justify-content-center">
+			<div class="main-box pt-2">
 				<h2 class="text-center mt-5">𝑀𝑎𝑖𝑛</h2>
 
 			<div class="mt-3 p-4 text-center">
@@ -49,7 +49,7 @@
 		</section>
 		
 		
-		<footer class="bg-info">
+		<footer>
 			<div class="text-center">Copyright 2023. All rights reserved.</div>
 		</footer>
 		

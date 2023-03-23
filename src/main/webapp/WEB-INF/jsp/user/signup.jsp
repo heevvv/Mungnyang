@@ -17,11 +17,11 @@
 </head>
 <body>
 	<div id="wrap">
-		<header class="bg-danger text-center">
+		<header class="text-center">
 			<h1>𝑀𝑢𝑛𝑔𝑛𝑦𝑎𝑛𝑔𝑃𝑙𝑎𝑐𝑒</h1>
 		</header>
-		<section class="contents bg-success d-flex justify-content-center">
-			<div class="join-box bg-warning">
+		<section class="contents d-flex justify-content-center">
+			<div class="join-box">
 				<h2 class="text-center">𝑠𝑖𝑔𝑛 𝑢𝑝</h2>
 				<h6>아이디</h6>
 				<div class="d-flex mt-3">
@@ -49,7 +49,7 @@
 			</div>
 		</section>
 		
-		<footer class="bg-info">
+		<footer>
 			<div class="text-center">Copyright 2023. All rights reserved.</div>
 		</footer>
 	</div>

@@ -19,12 +19,12 @@
 		<!-- 큰 박스-->
 		<div id="wrap">
 		
-		<header class="bg-danger text-center">
+		<header class="text-center">
 			<h1>𝑀𝑢𝑛𝑔𝑛𝑦𝑎𝑛𝑔𝑃𝑙𝑎𝑐𝑒</h1>
 		</header>
 		
-		<section class="contents bg-success d-flex justify-content-center">
-			<div class="login-box bg-warning pt-3">
+		<section class="contents d-flex justify-content-center">
+			<div class="login-box pt-3">
 				<h2 class="text-center mt-5">𝐿𝑜𝑔𝑖𝑛</h2>
 				<h6>아이디</h6>
 				<input type="text" placeholder="*아이디를 입력하세요." id="loginIdInput" class="form-control">
@@ -41,7 +41,7 @@
 			</div>
 		</section>
 		
-		<footer class="bg-info">
+		<footer>
 			<div class="text-center">Copyright 2023. All rights reserved.</div>
 		</footer>
 		
