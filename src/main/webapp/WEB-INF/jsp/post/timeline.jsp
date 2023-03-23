@@ -46,7 +46,9 @@
 					<div class="card mt-4">
 						<div class="d-flex justify-content-between p-2 mt-3">
 							<div><b>${post.userName }</b></div>
+							<c:if test="${userId eq post.userId }">
 							<div class="more-btn" data-post-id="${post.id }"><i class="bi bi-three-dots"></i></div>
+						</c:if>
 						</div>
 						
 						<div>

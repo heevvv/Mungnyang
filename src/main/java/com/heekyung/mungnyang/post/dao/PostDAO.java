@@ -20,6 +20,10 @@ public interface PostDAO {
 	public Post selectPost(@Param("postId") int postId);
 	
 	// 대상 테이블 삭제
-	public int deletePost(@Param("postId") int postId);
+	public int deletePost(
+			@Param("postId") int postId
+			// 삭제 과정에서, 내가 쓴 글만 삭제할 수 있도록.
+			, @Param("userId") int userId);
+	
 	
 }
