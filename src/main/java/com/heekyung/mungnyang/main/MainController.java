@@ -10,8 +10,7 @@ public class MainController {
 	public String menuView() {
 		return "main/menu";
 		
-		
 	}
-
+	
 	
 }
