@@ -29,42 +29,36 @@
 		<section class="contents d-flex justify-content-center">
 			<div class="main-box pt-2">
 
-		<h3><b>마음 동물병원</b></h3>
-		<h6>서울시 강남구 역삼동</h6>
-		
-		<hr>
 
-		<h3><b>마음 동물병원</b></h3>
-		<h6>서울시 강남구 역삼동</h6>
-		
-		<hr>
 
-		<h3><b>마음 동물병원</b></h3>
-		<h6>서울시 강남구 역삼동</h6>
-		
-				
-		<hr>
+            <div class="panel panel-default">
+                <div class="panel-heading">병원 목록</div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>이름</th>
+                                <th>주소</th>
+                                <th>전화번호</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="search" items="${searchList }" >
+                            <tr>
+                                <td>${search.id}</td>
+                                <td>${search.office}</td>
+                                <td>${search.address}</td>
+                                <td>${search.phoneNumber}</td>
+                            </tr>
+                           </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-		<h3><b>마음 동물병원</b></h3>
-		<h6>서울시 강남구 역삼동</h6>
-		
-				
-		<hr>
 
-		<h3><b>마음 동물병원</b></h3>
-		<h6>서울시 강남구 역삼동</h6>
-		
-		
-				
-		<hr>
-
-		<h3><b>마음 동물병원</b></h3>
-		<h6>서울시 강남구 역삼동</h6>
-		
-				
-		
-			
-			</div>
 		</section>
 
 		<footer>
