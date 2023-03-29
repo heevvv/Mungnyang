@@ -20,4 +20,19 @@
 	</select>
 	
 	
+	<select id="selectSearch" parameterType="int"
+	resultType="com.heekyung.mungnyang.search.model.Hospital">
+		SELECT
+		`id`
+		, `office`
+		, `address`
+		, `phoneNumber`
+		, `createdAt`
+		, `updatedAt`
+		FROM
+			`hospital`
+		WHERE
+			`id` = #{searchId}
+	</select>
+	
 </mapper>

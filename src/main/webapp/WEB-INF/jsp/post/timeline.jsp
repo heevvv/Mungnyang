@@ -20,7 +20,7 @@
 		<div id="wrap">
 		
 		<header class="text-center">
-			<h1>𝑀𝑢𝑛𝑔𝑛𝑦𝑎𝑛𝑔𝑃𝑙𝑎𝑐𝑒</h1>
+			<h1><a href="/main/menu/view">𝑀𝑢𝑛𝑔𝑛𝑦𝑎𝑛𝑔𝑃𝑙𝑎𝑐𝑒</a></h1>
 			<c:if test="${not empty userId }">
 				<div class="d-flex justify-content-end">${userName }님 <a href="/user/signout">로그아웃</a></div>
 			</c:if>

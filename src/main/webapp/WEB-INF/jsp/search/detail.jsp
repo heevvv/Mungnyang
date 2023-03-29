@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>병원 검색</title>
+<title>병원 목록</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
@@ -26,46 +26,36 @@
 			</c:if>
 		</header>
 		
-		<section class="contents d-flex justify-content-center">
-			<div class="search-box pt-2">
+		
+		<section class="d-flex justify-content-center">
+		
+			<div class="input-box my-5">
+				<h1 class="text-center"><b>${hospital.office}</b></h1>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">병원 목록</div>
-                <div class="panel-body">
-                    <table class="table table-hover">
-                        <thead>
+				<br>
+				<br>
                             <tr>
-                                <th>No</th>
-                                <th>이름</th>
-                                <th>주소</th>
-                                <th>전화번호</th>
+                                <td><h4><b><i class="bi bi-geo-alt-fill"></i></b> ${hospital.address}</h4></td>
+                                <td><h4><b><i class="bi bi-telephone"></i></b> ${hospital.phoneNumber}</h4></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="search" items="${searchList }" >
-                            <tr>
-                                <td>${search.id}</a></td>
-                                <td><a href="/search/detail/view?searchId=${search.id }">${search.office}</td>
-                                <td>${search.address}</td>
-                                <td>${search.phoneNumber}</td>
-                            </tr>
-                           </c:forEach>
-                        </tbody>
-                    </table>
-                    
-                </div>
-            </div>
-        </div>
-
+                           
+				<div class="d-flex justify-content-between mt-5">
+						<a href="/search/list/view" class="btn btn-info">목록으로</a>
+				<button type="button" class="btn btn-danger">예약하기</button>
+				<button type="button" class="btn btn-success">후기작성</button>
+				
+				</div>
+			</div>
+			
 		</section>
 
 		<footer>
 			<div class="text-center">Copyright 2023. All rights reserved.</div>
 		</footer>
 		
+		
 	</div>
 	
-	
-</body>
 
+</body>
 </html>

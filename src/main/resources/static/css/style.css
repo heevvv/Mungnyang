@@ -9,10 +9,6 @@ header {
 	height:80px;
 }
 
-.contents {
-	height:600px;
-}
-
 .contents > .join-box {
 	height:600px;
 	width:450px;
@@ -30,6 +26,7 @@ header {
 	width:800px;
 	
 }
+
 
 .timeline-box {
 	width:600px;

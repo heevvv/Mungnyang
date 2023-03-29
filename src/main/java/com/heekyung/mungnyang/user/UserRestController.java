@@ -52,16 +52,18 @@ public class UserRestController {
 		
 		User user = userBO.getUser(loginId, password);
 		
-		HttpSession session = request.getSession();
-		// 세션에 값 저장
-		session.setAttribute("userId", user.getId());
-		session.setAttribute("userName", user.getName());
-		session.setAttribute("userPetname", user.getPetname());
-
 		Map<String, String> result = new HashMap<>();
 		
 		if(user != null) {
 			result.put("result", "success");
+			
+			HttpSession session = request.getSession();
+			// 세션에 값 저장
+			session.setAttribute("userId", user.getId());
+			session.setAttribute("userName", user.getName());
+			session.setAttribute("userPetname", user.getPetname());
+
+			
 		} else {
 			result.put("result", "fail");
 		}

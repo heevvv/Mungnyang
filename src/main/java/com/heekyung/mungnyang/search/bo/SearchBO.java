@@ -18,5 +18,9 @@ public class SearchBO {
 		return searchDAO.selectSearchList();
 
 	}
+	
+	public Hospital getSearch(int searchId) {
+		return searchDAO.selectSearch(searchId);
+	}
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.heekyung.mungnyang.search.bo.SearchBO;
 import com.heekyung.mungnyang.search.model.Hospital;
@@ -24,6 +25,18 @@ public class SearchController {
 		
 		return "search/list";
 		
+	}
+	
+	@GetMapping("/search/detail/view")
+	public String detailView(
+			@RequestParam("searchId") int searchId
+			, Model model) {
+		
+		Hospital hospital = searchBO.getSearch(searchId);
+		
+		model.addAttribute("hospital",hospital);
+
+		return "search/detail";
 	}
 	
 
