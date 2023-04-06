@@ -42,9 +42,17 @@
 				<div class="d-flex justify-content-between mt-5">
 						<a href="/search/list/view" class="btn btn-info">목록으로</a>
 				<button type="button" class="btn btn-danger">예약하기</button>
-				<button type="button" class="btn btn-success">후기작성</button>
 				
 				</div>
+				
+					<br>
+					<br>
+				
+			<div class="d-flex">
+				<input type="text" class="form-control" id="reviewInput${hospital.id }">
+				<button type="button" class="btn btn-success upload-btn" data-hospital-id="${hospital.id }">후기 작성</button>					
+			</div>
+				
 			</div>
 			
 		</section>
@@ -57,5 +65,46 @@
 	</div>
 	
 
+
+	<script>
+	
+	
+	$(document).ready(function() {
+	
+		$(".upload-btn").on("click", function() {
+				
+			let hospitalId = $(this).data("hospital-id");
+				
+			let review = $("#reviewInput" + hospitalId).val();
+				
+ 			//alert(review);
+
+			
+ 			$.ajax({
+				type:"post"
+				, url:"/search/review/create"
+				, data:{"hospitalId":hospitalId, "content":review}
+				, success:function(data) {
+					if(data.result == "success") {
+						alert("리뷰 작성 성공")
+					} else {
+						alert("리뷰 작성 실패");
+					}
+				}
+				, error:function() {
+					alert("리뷰 작성 에러");
+				}
+			}); 
+			
+			
+		});
+			
+	})
+	
+	</script>
+	
+	
+	
+	
 </body>
 </html>

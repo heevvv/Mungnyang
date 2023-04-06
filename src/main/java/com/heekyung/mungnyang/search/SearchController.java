@@ -39,5 +39,10 @@ public class SearchController {
 		return "search/detail";
 	}
 	
+	
+	@GetMapping("/search/review/view")
+	public String reviewView() {
+		return "search/review";
+	}
 
 }

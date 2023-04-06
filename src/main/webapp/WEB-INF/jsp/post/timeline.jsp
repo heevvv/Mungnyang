@@ -28,6 +28,7 @@
 		
 		<section class="d-flex justify-content-center">
 			<div class="timeline-box">
+			
 				<div class="input-box border rounded">
 					<textarea class="form-control border-0" rows="5" id="contentInput"></textarea>
 					
