@@ -29,7 +29,7 @@
 		
 		<section class="d-flex justify-content-center">
 		
-			<div class="input-box my-5">
+			<div class="timeline-box my-5">
 				<h1 class="text-center"><b>${hospital.office}</b></h1>
 
 				<br>
@@ -52,10 +52,34 @@
 				<input type="text" class="form-control" id="reviewInput${hospital.id }">
 				<button type="button" class="btn btn-success upload-btn" data-hospital-id="${hospital.id }">후기 작성</button>					
 			</div>
+			
+			
+				<table class="table text-center mt-4">
+					<thead>
+						<tr>
+							<th>작성자</th>
+							<th>내용</th>
+						</tr>
+					</thead>
+					<tbody>
+					<c:forEach var="review" items="${reviewList}" >
+						<tr>
+							<td> ${review.userId } </td>
+							<td> ${review.content } </td>
+						</tr>
+					</c:forEach>
+					
+					
+
+				</tbody>
+			</table>
 				
 			</div>
 			
 		</section>
+		
+		
+
 
 		<footer>
 			<div class="text-center">Copyright 2023. All rights reserved.</div>
@@ -76,8 +100,13 @@
 			let hospitalId = $(this).data("hospital-id");
 				
 			let review = $("#reviewInput" + hospitalId).val();
-				
- 			//alert(review);
+			
+
+			if(review == "") {
+				alert("내용을 입력하세요.");
+				return ;
+			}
+			
 
 			
  			$.ajax({
@@ -86,7 +115,7 @@
 				, data:{"hospitalId":hospitalId, "content":review}
 				, success:function(data) {
 					if(data.result == "success") {
-						alert("리뷰 작성 성공")
+						location.reload();
 					} else {
 						alert("리뷰 작성 실패");
 					}

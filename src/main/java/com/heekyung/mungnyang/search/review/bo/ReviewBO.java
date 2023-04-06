@@ -1,8 +1,11 @@
 package com.heekyung.mungnyang.search.review.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.heekyung.mungnyang.search.model.Review;
 import com.heekyung.mungnyang.search.review.dao.ReviewDAO;
 
 @Service
@@ -16,4 +19,9 @@ public class ReviewBO {
 		return reviewDAO.insertReview(userId, hospitalId, content);
 	}
 
+	
+
+	public List<Review> getReviewList(){
+		return reviewDAO.selectReviewList();
+	}
 }

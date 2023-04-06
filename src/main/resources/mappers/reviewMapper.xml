@@ -27,6 +27,22 @@
 		
 	</insert>
 	
+	<select id="selectReviewList" parameterType="int"
+	resultType="com.heekyung.mungnyang.search.model.Review">
+		SELECT 
+			`id`
+			,`userId`
+			, `hospitalId`
+			, `content`
+			, `createdAt`
+			, `updatedAt`
+		FROM 
+			`review`
+
+		ORDER BY 
+			`id` DESC;
+	
+	</select>	
 
 	
 </mapper>

@@ -10,12 +10,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.heekyung.mungnyang.search.bo.SearchBO;
 import com.heekyung.mungnyang.search.model.Hospital;
+import com.heekyung.mungnyang.search.model.Review;
+import com.heekyung.mungnyang.search.review.bo.ReviewBO;
 
 @Controller
 public class SearchController {
 	
 	@Autowired
 	private SearchBO searchBO;
+	
+	@Autowired
+	private ReviewBO reviewBO;
 	
 	@GetMapping("/search/list/view")
 	public String searchView(Model model) {
@@ -34,8 +39,13 @@ public class SearchController {
 		
 		Hospital hospital = searchBO.getSearch(searchId);
 		
-		model.addAttribute("hospital",hospital);
+		List<Review> reviewList = reviewBO.getReviewList();
 
+		
+		
+		model.addAttribute("hospital",hospital);
+		model.addAttribute("reviewList",reviewList);
+		
 		return "search/detail";
 	}
 	
