@@ -24,4 +24,8 @@ public class ReviewBO {
 	public List<Review> getReviewList(){
 		return reviewDAO.selectReviewList();
 	}
+	
+	public List<Review> getReviewListByHospitalId(int hospitalId) {
+	    return reviewDAO.selectReviewListByHospitalId(hospitalId);
+	}
 }

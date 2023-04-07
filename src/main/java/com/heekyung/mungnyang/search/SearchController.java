@@ -34,19 +34,16 @@ public class SearchController {
 	
 	@GetMapping("/search/detail/view")
 	public String detailView(
-			@RequestParam("searchId") int searchId
-			, Model model) {
-		
-		Hospital hospital = searchBO.getSearch(searchId);
-		
-		List<Review> reviewList = reviewBO.getReviewList();
+	        @RequestParam("searchId") int searchId
+	        , Model model) {
 
-		
-		
-		model.addAttribute("hospital",hospital);
-		model.addAttribute("reviewList",reviewList);
-		
-		return "search/detail";
+	    Hospital hospital = searchBO.getSearch(searchId);
+	    List<Review> reviewList = reviewBO.getReviewListByHospitalId(searchId);
+
+	    model.addAttribute("hospital",hospital);
+	    model.addAttribute("reviewList",reviewList);
+
+	    return "search/detail";
 	}
 	
 	

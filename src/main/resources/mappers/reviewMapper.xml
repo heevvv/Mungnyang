@@ -27,7 +27,7 @@
 		
 	</insert>
 	
-	<select id="selectReviewList" parameterType="int"
+	<select id="selectReviewListByHospitalId" parameterType="int"
 	resultType="com.heekyung.mungnyang.search.model.Review">
 		SELECT 
 			`id`
@@ -38,11 +38,13 @@
 			, `updatedAt`
 		FROM 
 			`review`
-
+		WHERE
+			`hospitalId` = #{hospitalId}
 		ORDER BY 
 			`id` DESC;
 	
-	</select>	
+	</select>
+
 
 	
 </mapper>

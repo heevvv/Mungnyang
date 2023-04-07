@@ -16,5 +16,7 @@ public interface ReviewDAO {
 			, @Param("content") String content);
 	
 	public List<Review> selectReviewList();
+	
+	public List<Review> selectReviewListByHospitalId(@Param("hospitalId") int hospitalId);
 
 }
