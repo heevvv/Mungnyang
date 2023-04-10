@@ -32,6 +32,11 @@ header {
 	width:600px;
 }
 
+.reservation-box {
+	height:600px;
+	width:400px;
+}
+
 .upload-icon {
 	font-size:25px;
 }

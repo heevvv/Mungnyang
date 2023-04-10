@@ -41,7 +41,7 @@
                            
 				<div class="d-flex justify-content-between mt-5">
 						<a href="/search/list/view" class="btn btn-info">목록으로</a>
-				<button type="button" class="btn btn-danger">예약하기</button>
+				<button type="button" id="reservationBtn" class="btn btn-danger">예약하기</button>
 				
 				</div>
 				
@@ -57,14 +57,12 @@
 				<table class="table text-center mt-4">
 					<thead>
 						<tr>
-							<th>작성자</th>
-							<th>내용</th>
+							<th>Review</th>
 						</tr>
 					</thead>
 					<tbody>
 					<c:forEach var="review" items="${reviewList}" >
 						<tr>
-							<td> ${review.userId } </td>
 							<td> ${review.content } </td>
 						</tr>
 					</c:forEach>
@@ -127,11 +125,28 @@
 			
 			
 		});
+		
+
+			$("#reservationBtn").click(function() {
+				
+			   $.ajax({
+			   	 type: "get"
+			     , url: "/reservation"
+			     , success: function(response) {
+			    	location.href = "/reservation";
+			     },
+			     error: function(error) {
+			       console.log(error);
+			      }
+			    });
+			   
+			  });
+			
 			
 	})
 	
 	</script>
-	
+
 	
 	
 	
