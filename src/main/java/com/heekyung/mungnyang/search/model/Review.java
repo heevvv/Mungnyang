@@ -10,6 +10,7 @@ public class Review {
 	private String content;
 	private Date createdAt;
 	private Date updatedAt;
+	private String name;
 	public int getId() {
 		return id;
 	}
@@ -46,6 +47,12 @@ public class Review {
 	}
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

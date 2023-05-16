@@ -30,14 +30,16 @@
 	<select id="selectReviewListByHospitalId" parameterType="int"
 	resultType="com.heekyung.mungnyang.search.model.Review">
 		SELECT 
-			`id`
-			,`userId`
-			, `hospitalId`
-			, `content`
-			, `createdAt`
-			, `updatedAt`
+			a.`id`
+			,a.`userId`
+			, a.`hospitalId`
+			, a.`content`
+			, a.`createdAt`
+			, a.`updatedAt`
+            , b.`name`
 		FROM 
-			`review`
+			`review` as a
+            join `user` as b  on a.userId = b.loginId 
 		WHERE
 			`hospitalId` = #{hospitalId}
 		ORDER BY 

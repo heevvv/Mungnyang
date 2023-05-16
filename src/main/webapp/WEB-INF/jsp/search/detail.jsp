@@ -57,12 +57,14 @@
 				<table class="table text-center mt-4">
 					<thead>
 						<tr>
-							<th>Review</th>
+							<th>이름</th>
+							<th>내용</th>
 						</tr>
 					</thead>
 					<tbody>
 					<c:forEach var="review" items="${reviewList}" >
 						<tr>
+							<td> ${review.name } </td>
 							<td> ${review.content } </td>
 						</tr>
 					</c:forEach>
